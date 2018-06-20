@@ -26,7 +26,7 @@ class PostsController extends Controller
      public function index(posts $posts) 
     {
 
-        dd($posts);
+     
 
         $posts=$posts->all();
 

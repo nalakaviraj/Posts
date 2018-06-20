@@ -15,7 +15,7 @@
 
         <testsuite name="Unit">
             <directory suffix="Test.php">./tests/Unit</directory>
-        </testsuite>
+        </testsuite> 
     </testsuites>
     <filter>
         <whitelist processUncoveredFilesFromWhitelist="true">
@@ -32,3 +32,4 @@
         <env name="DB-DATABASE" value="blog_testing"/>
     </php>
 </phpunit>
+ 
