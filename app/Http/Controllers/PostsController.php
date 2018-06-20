@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
  
+use App\Repositories\posts;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 use App\Post;
@@ -20,17 +21,22 @@ class PostsController extends Controller
 
 
 
-     public function index() 
+    
+
+     public function index(posts $posts) 
     {
 
+        dd($posts);
 
-        $posts=(new\App\Repositories\posts)->all();
+        $posts=$posts->all();
 
+       
+        
         // $posts=Post::latest()
         // ->filter(request(['month','year']))
         // ->get();
 
-        $archives=Post::archives();
+
  
 
     	// $posts=Post::latest(); 
@@ -54,7 +60,7 @@ class PostsController extends Controller
 
      //    $posts=$posts->get();
 
-    	return view('posts.index',compact('posts','archives ')); 
+    	return view('posts.index',compact('posts')); 
 
 
     }
@@ -65,7 +71,7 @@ class PostsController extends Controller
         $archives=Post::archives();
       
 
-    	return view('posts.show',compact('post','archives'));  
+    	return view('posts.show',compact('post'));  
 
     } 
 

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\SessionGuard;
+use App\Mail\Welcome;
 
 class RegistrationController extends Controller
 {
@@ -60,6 +61,8 @@ $this->middleware('guest');
 
 
     	 auth()->login($user);
+         \Mail::to($user)->send(new Email);
+
 
 
     	// Redirect to the home page
