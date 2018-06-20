@@ -54,6 +54,18 @@ $this->comments()->create(compact('body'));
 }
 
 
+public function tags()
+{
+
+$this->belongsToMany(Tag::class);
+
+
+
+
+
+}
+
+
 
 public function scopeFilter($query,$filters)
 

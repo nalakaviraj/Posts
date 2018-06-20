@@ -27,6 +27,7 @@ class PostsController extends Controller
     {
 
      
+        
 
         $posts=$posts->all();
 
@@ -37,7 +38,7 @@ class PostsController extends Controller
         // ->get();
 
 
- 
+  
 
     	// $posts=Post::latest(); 
 
@@ -138,7 +139,7 @@ class PostsController extends Controller
      //    ]));
 
 
-
+        session()->flash('message','Your Post Has been now plublished');
  
 
 

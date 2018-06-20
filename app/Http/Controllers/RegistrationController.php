@@ -3,10 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\User;
+
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Auth\SessionGuard;
-use App\Mail\Welcome;
+
+use App\Http\Requests\RegistrationForm;
 
 class RegistrationController extends Controller
 {
@@ -27,41 +28,23 @@ $this->middleware('guest');
     }
 
 
-    public function store()
+    public function store(RegistrationForm $form)
 
     {
 
-    	 //Validate the form
 
 
-
-    	$this->validate(request(),[
-
-
-    		'name'=>'required',
-    		'email'=>'required|email',
-    		'password'=>'required|confirmed'
+        $form->persist();
 
 
-    	]);
+        session()->flash('message','hell thank you');
+
+
 
 
     	// Create and save the user
 
-    	$user = User::create([
-'name' => request('name'),
-'email' => request('email'),
-'password' => Hash::make(request('password'))
-]);
 
-
-
-
-    	//Sign them in
-
-
-    	 auth()->login($user);
-         \Mail::to($user)->send(new Welcome($user));
 
 
 
