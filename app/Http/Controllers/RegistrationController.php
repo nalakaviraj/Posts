@@ -61,7 +61,7 @@ $this->middleware('guest');
 
 
     	 auth()->login($user);
-         // \Mail::to($user)->send(new Welcome);
+         \Mail::to($user)->send(new Welcome($user));
 
 
 
